@@ -1,8 +1,7 @@
 import React from "react";
 import { LoginForm } from "./LoginForm.js";
-import Box from "@material-ui/core/Box";
-import logo from "./logo.png";
-import "./Login.css";
+import logo from "../assets/img/logo.png";
+import "../assets/css/Form.css";
 
 const LogoContainer = () => (
   <div className="Logo-container">
@@ -10,27 +9,9 @@ const LogoContainer = () => (
   </div>
 );
 
-const FormContainer = () => (
-  <Box
-    component="div"
-    bgcolor="primary.contrastText"
-    boxShadow={3}
-    borderRadius={5}
-    width={500}
-    height={370}
-    mr="auto"
-  >
-    <h1 className="Form-header">Войти</h1>
-    <p className="Form-paragraph">
-      Новый пользователь? <a href="#">Зарегистрируйтесь</a>
-    </p>
-    <LoginForm />
-  </Box>
-);
-
-export const Login = () => (
+export const Login = ({ setPage }) => (
   <div className="Login-wrapper">
     <LogoContainer />
-    <FormContainer />
+    <LoginForm setPage={setPage} />
   </div>
 );

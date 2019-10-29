@@ -1,27 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
+import { useStyles } from "../shared/MaterialStyles.js";
 import TextField from "@material-ui/core/TextField";
-
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: 50,
-    width: 400
-  },
-  button: {
-    marginLeft: 320,
-    marginTop: 30,
-    width: 130,
-    height: 40,
-    background: "linear-gradient(45deg, #FFC700 30%, #FFC700 90%)",
-    textTransform: "none"
-  }
-}));
+import Box from "@material-ui/core/Box";
+import "../assets/css/Form.css";
 
 export const LoginForm = ({ setPage }) => {
   const classes = useStyles();
@@ -31,29 +14,51 @@ export const LoginForm = ({ setPage }) => {
   };
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className={classes.container}
-      noValidate
-      autoComplete="off"
+    <Box
+      component="div"
+      bgcolor="primary.contrastText"
+      boxShadow={3}
+      borderRadius={5}
+      width={500}
+      height={400}
+      mr="auto"
+      pl={1}
     >
-      <TextField
-        id="userName"
-        label="Имя пользователя *"
-        placeholder="Имя пользователя"
-        className={classes.textField}
-        margin="normal"
-      />
-      <TextField
-        id="userPassword"
-        label="Пароль *"
-        placeholder="Пароль"
-        className={classes.textField}
-        margin="normal"
-      />
-      <Button variant="contained" className={classes.button}>
-        Войти
-      </Button>
-    </form>
+      <h1 className="Form-header">Войти</h1>
+      <p className="Form-paragraph">
+        Новый пользователь?{" "}
+        <Button
+          onClick={() => setPage("signup")}
+          color="primary"
+          className={classes.buttonAnchor}
+        >
+          Зарегистрируйтесь
+        </Button>
+      </p>
+      <form
+        onSubmit={onSubmit}
+        className={classes.container}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="userName"
+          label="Имя пользователя *"
+          placeholder="Имя пользователя"
+          className={classes.textField}
+          margin="normal"
+        />
+        <TextField
+          id="userPassword"
+          label="Пароль *"
+          placeholder="Пароль"
+          className={classes.textField}
+          margin="normal"
+        />
+        <Button type="submit" className={classes.buttonSubmit}>
+          Войти
+        </Button>
+      </form>
+    </Box>
   );
 };
