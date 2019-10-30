@@ -1,7 +1,8 @@
 import React from "react";
+import {MapRender} from "./Map.js";
 
-export const Map = () => (
+export const MapPage = () => (
   <>
-    <h1>Map</h1>
+    <MapRender />
   </>
 );
