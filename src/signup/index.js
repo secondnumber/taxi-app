@@ -1,6 +1,7 @@
 import React from "react";
 import { SignupForm } from "./SignupForm.js";
 import logo from "../assets/img/logo.png";
+import PropTypes from "prop-types";
 import "../assets/css/Form.css";
 
 const LogoContainer = () => (
@@ -15,3 +16,7 @@ export const Signup = ({ setPage }) => (
     <SignupForm setPage={setPage} />
   </div>
 );
+
+Signup.propTypes = {
+  setPage: PropTypes.func,
+}

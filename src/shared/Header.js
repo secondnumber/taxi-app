@@ -3,6 +3,7 @@ import logoHeader from "../assets/img/logo-header.png";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import { useStyles } from "./MaterialStyles.js";
+import PropTypes from "prop-types";
 import "../assets/css/Header.css";
 
 export const Header = ({ setPage }) => {
@@ -35,3 +36,7 @@ export const Header = ({ setPage }) => {
     </Box>
   );
 };
+
+Header.propTypes = {
+  setPage: PropTypes.func,
+}

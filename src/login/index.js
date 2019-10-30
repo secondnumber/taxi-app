@@ -1,6 +1,7 @@
 import React from "react";
 import { LoginForm } from "./LoginForm.js";
 import logo from "../assets/img/logo.png";
+import PropTypes from "prop-types";
 import "../assets/css/Form.css";
 
 const LogoContainer = () => (
@@ -15,3 +16,7 @@ export const Login = ({ setPage }) => (
     <LoginForm setPage={setPage} />
   </div>
 );
+
+Login.propTypes = {
+  setPage: PropTypes.func,
+}
